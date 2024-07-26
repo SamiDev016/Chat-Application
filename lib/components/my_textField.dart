@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
   final String title;
-  const MyTextField({super.key,required this.title});
+  final bool isPassword;
+  final TextEditingController controller;
+  const MyTextField({super.key,required this.title,required this.isPassword,required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: TextField(
+        controller: controller,
+        obscureText: isPassword,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Theme.of(context).colorScheme.tertiary)
@@ -19,8 +23,8 @@ class MyTextField extends StatelessWidget {
           fillColor: Theme.of(context).colorScheme.secondary,
           filled: true,
           hintText: title,
+          hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary)
           
-
         ),
       ),
     );
