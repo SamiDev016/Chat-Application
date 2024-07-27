@@ -1,3 +1,4 @@
+import 'package:chat_app/auth/auth_service.dart';
 import 'package:chat_app/components/my_button.dart';
 import 'package:chat_app/components/my_textField.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,20 @@ class LoginPage extends StatelessWidget {
 
   LoginPage({super.key, required this.onTap});
 
-  void login() {}
+  void login(BuildContext context) async {
+    final authService = AuthService();
+    try {
+      await authService.signInWithEmailPassword(
+          _emailController.text, _passwordController.text);
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +75,7 @@ class LoginPage extends StatelessWidget {
 
             MyButton(
               text: "Login",
-              onTap: login,
+              onTap: () => login(context),
             ),
 
             //register now
@@ -78,13 +92,13 @@ class LoginPage extends StatelessWidget {
                       TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),
                 GestureDetector(
-                  onTap: onTap,
+                    onTap: onTap,
                     child: Text(
-                  "Register Now!",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.primary),
-                )),
+                      "Register Now!",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.primary),
+                    )),
               ],
             ),
           ],
