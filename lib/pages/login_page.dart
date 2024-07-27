@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
           children: [
             //logo
             Icon(
-              Icons.message,
+              Icons.person,
               size: 60,
               color: Theme.of(context).colorScheme.primary,
             ),

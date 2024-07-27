@@ -5,7 +5,6 @@ import 'package:chat_app/theme/light_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'auth/login_or_register.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

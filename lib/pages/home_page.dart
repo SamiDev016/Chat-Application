@@ -1,14 +1,12 @@
-import 'package:chat_app/auth/auth_service.dart';
+
 import 'package:flutter/material.dart';
+
+import '../components/my_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  void logout(){
-    final _authService = AuthService();
 
-    _authService.signOut();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,10 +14,9 @@ class HomePage extends StatelessWidget {
         title: Text("HomePage",style: TextStyle(color: Colors.white),),
         backgroundColor: Theme.of(context).colorScheme.primary,
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: logout, icon: Icon(Icons.logout))
-        ],
+        
       ),
+      drawer: MyDrawer(),
     );
   }
 }

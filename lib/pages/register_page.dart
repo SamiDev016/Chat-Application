@@ -1,3 +1,4 @@
+import 'package:chat_app/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -12,7 +13,22 @@ class RegisterPage extends StatelessWidget {
 
   final void Function()? onTap;
 
-  void register() {}
+  void register(BuildContext context) {
+    final _authService = AuthService();
+    if (_passwordController.text == _confirmPasswordController.text) {
+      try{
+        _authService.signUpWithEmailAndPassword(_emailController.text, _passwordController.text);
+      }catch(e){
+        showDialog(context: context, builder: (context)=> AlertDialog(
+          title: Text(e.toString()),
+        ));
+      }
+    }else{
+      showDialog(context: context, builder: (context)=> const AlertDialog(
+          title: Text("CONFIRM PASSWORD"),
+        ));
+    }
+  }
   RegisterPage({super.key, required this.onTap});
 
   @override
@@ -71,7 +87,7 @@ class RegisterPage extends StatelessWidget {
 
             MyButton(
               text: "Register",
-              onTap: register,
+              onTap: ()=>register(context),
             ),
 
             //register now
