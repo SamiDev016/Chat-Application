@@ -55,6 +55,7 @@ class LoginPage extends StatelessWidget {
             ),
             //email textField
             MyTextField(
+              
                 title: "Email",
                 isPassword: false,
                 controller: _emailController),

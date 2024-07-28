@@ -5,7 +5,7 @@ class MyTextField extends StatelessWidget {
   final bool isPassword;
   final TextEditingController controller;
   final FocusNode? focusNode;
-  const MyTextField({super.key,required this.title,required this.isPassword,required this.controller, required this.focusNode});
+  const MyTextField({super.key,required this.title,required this.isPassword,required this.controller, this.focusNode});
 
   @override
   Widget build(BuildContext context) {
