@@ -16,11 +16,14 @@ class UserTile extends StatelessWidget {
           color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(15)
         ),
-        margin: EdgeInsets.symmetric(vertical: 5,horizontal: 25),
+        margin: const EdgeInsets.symmetric(vertical: 5,horizontal: 25),
+        padding: const EdgeInsets.all(25),
         child: Row(
           children: [
             //icon
-            Icon(Icons.person),
+            const Icon(Icons.person),
+
+            const SizedBox(width: 20,),
 
             //userName
             Text(text)
