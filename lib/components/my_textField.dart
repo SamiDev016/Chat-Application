@@ -4,7 +4,8 @@ class MyTextField extends StatelessWidget {
   final String title;
   final bool isPassword;
   final TextEditingController controller;
-  const MyTextField({super.key,required this.title,required this.isPassword,required this.controller});
+  final FocusNode? focusNode;
+  const MyTextField({super.key,required this.title,required this.isPassword,required this.controller, required this.focusNode});
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +13,7 @@ class MyTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: TextField(
         controller: controller,
+        focusNode: focusNode,
         obscureText: isPassword,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
