@@ -1,13 +1,13 @@
-import 'package:chat_app/auth/auth_service.dart';
+import 'package:chat_app/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/settings_page.dart';
 
 class MyDrawer extends StatelessWidget {
     void logout(){
-    final _authService = AuthService();
+    final authService = AuthService();
 
-    _authService.signOut();
+    authService.signOut();
   }
   const MyDrawer({super.key});
 
